@@ -12,6 +12,9 @@ class Ejercicio4Test {
         System.out.println("firstInit");
         ej = new Ejercicio4();
         ej.arrayPokemons = ObtenerPokemonsRequest.Companion.get(1,9);
+        for (Pokemon poke : ej.arrayPokemons){
+            System.out.println(poke);
+        }
     }
 
 
@@ -53,17 +56,46 @@ class Ejercicio4Test {
         Pokemon[] pokemonActuales = ej.pokemonMasGordosQue(855);
         Assertions.assertArrayEquals(pokemonEsperados, pokemonActuales);
     }
+
+    @Test
+    void pokemonMasGordosQue4() {
+        Pokemon[] pokemonActuales = ej.pokemonMasGordosQue(0);
+        Assertions.assertArrayEquals(ej.arrayPokemons, pokemonActuales);
+    }
+
     @Test
     void getPokemonMenosGordo() {
         Pokemon[] pokemonEsperados = {
-                new Pokemon(20, 3, "venusaur", 1000),
-                new Pokemon(17, 6, "charizard", 905),
-                new Pokemon(16, 9, "blastoise", 855)
+                new Pokemon(7, 1, "bulbasaur", 69),
+                new Pokemon(6, 4, "charmander", 85),
         };
-        Pokemon[] pokemonActuales = ej.getPokemonMenosGordo(20);
+        Pokemon[] pokemonActuales = ej.getPokemonMenosGordo(90);
         Assertions.assertArrayEquals(pokemonEsperados, pokemonActuales);
     }
 
+    @Test
+    void getPokemonMenosGordo2() {
+        Pokemon[] pokemonEsperados = new Pokemon[0];
+        Pokemon[] pokemonActuales = ej.getPokemonMenosGordo(69);
+        Assertions.assertArrayEquals(pokemonEsperados, pokemonActuales);
+    }
+
+    @Test
+    void getpokemonMenosGordos3() {
+        Pokemon[] pokemonActuales = ej.getPokemonMenosGordo(10000);
+        Assertions.assertArrayEquals(ej.arrayPokemons, pokemonActuales);
+    }
+
+    @Test
+    void pokemonEntrePesos(){
+        Pokemon[] pokemonEsperados = {
+                new Pokemon(7, 1, "bulbasaur", 69),
+                new Pokemon(6, 4, "charmander", 85),
+                new Pokemon(5, 7, "squirtle", 90)
+        };
+        Pokemon[] pokemonActuales = ej.getPokemonPesoEntre(95, 50);
+        Assertions.assertArrayEquals(pokemonEsperados, pokemonActuales);
+    }
 
 
     @Test
