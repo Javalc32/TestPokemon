@@ -129,6 +129,46 @@ class Ejercicio4Test {
         Assertions.assertArrayEquals(pokemonEsperados, pokemonActuales);
     }
 
+    @Test
+    void pokemonNombreMasLargoQue2(){
+        //Comprueba que devuelva un array vacio si se pone longitud del texto 10 (el maximo)
+        Pokemon[] pokemonEsperados = new Pokemon[0];
+        Pokemon[] pokemonActuales = ej.getPokemonNombreMasLargoQue(10);
+        Assertions.assertArrayEquals(pokemonEsperados, pokemonActuales);
+    }
+
+    @Test
+    void pokemonNombreMasLargoQue3(){
+        //Comprueba que devuelva todos los pokemon si pones longitud 0
+        Pokemon[] pokemonActuales = ej.getPokemonNombreMasLargoQue(0);
+        Assertions.assertArrayEquals(ej.arrayPokemons, pokemonActuales);
+    }
+
+    @Test
+    void pokemonNombreMasCorto(){
+        //Comprueba que devuelva los pokemon con nombre mas corto que la longitud dada
+        Pokemon[] pokemonEsperados = {
+                new Pokemon(10, 2, "ivysaur", 130)
+        };
+        Pokemon[] pokemonActuales = ej.getPokemonNombreMasCortoQue(8);
+        Assertions.assertArrayEquals(pokemonEsperados, pokemonActuales);
+    }
+
+    @Test
+    void pokemonNombreMasCorto2(){
+        //Comprueba que devuelva todos los pokemon cuando se le pone longitud 11
+        Pokemon[] pokemonActuales = ej.getPokemonNombreMasCortoQue(11);
+        Assertions.assertArrayEquals(ej.arrayPokemons, pokemonActuales);
+    }
+
+    @Test
+    void pokemonNombreMasCorto3(){
+        //Comprueba que devuelva un array vacio cuando se pone longitud 7
+        Pokemon[] pokemonEsperados = new Pokemon[0];
+        Pokemon[] pokemonActuales = ej.getPokemonNombreMasCortoQue(7);
+        Assertions.assertArrayEquals(pokemonEsperados, pokemonActuales);
+    }
+
 
     @Test
     void getPokemonQueContengaLasSiguientesLetras() {
@@ -138,6 +178,14 @@ class Ejercicio4Test {
                 new Pokemon(20, 3, "venusaur", 1000)
         };
         Pokemon[] pokemonActuales = ej.getPokemonQueContengaLasSiguientesLetras("saur");
+        Assertions.assertArrayEquals(pokemonEsperados, pokemonActuales);
+    }
+
+    @Test
+    void getPokemonQueContengaLasSiguientesLetras2() {
+        //Comprueba que devuelve array vacio si ponemos letras que no tengan ningun pokemon
+        Pokemon[] pokemonEsperados = new Pokemon[0];
+        Pokemon[] pokemonActuales = ej.getPokemonQueContengaLasSiguientesLetras("wxz");
         Assertions.assertArrayEquals(pokemonEsperados, pokemonActuales);
     }
 
