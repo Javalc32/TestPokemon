@@ -97,6 +97,38 @@ class Ejercicio4Test {
         Assertions.assertArrayEquals(pokemonEsperados, pokemonActuales);
     }
 
+    @Test
+    void pokemonEntrePesos2(){
+        //Comprueba que siendo uno de los dos pesos igual al peso de un pokemon, no se le incluya.
+        Pokemon[] pokemonEsperados = {
+                new Pokemon(7, 1, "bulbasaur", 69),
+                new Pokemon(6, 4, "charmander", 85),
+        };
+        Pokemon[] pokemonActuales = ej.getPokemonPesoEntre(90, 50);
+        Assertions.assertArrayEquals(pokemonEsperados, pokemonActuales);
+    }
+
+    @Test
+    void pokemonEntrePesos3(){
+        //Comprueba que cambiando el peso minimo como el maximo y el maximo como el minimo
+        // devuelva un array vacio.
+        Pokemon[] pokemonEsperados = new Pokemon[0];
+        Pokemon[] pokemonActuales = ej.getPokemonPesoEntre(50, 90);
+        Assertions.assertArrayEquals(pokemonEsperados, pokemonActuales);
+    }
+
+    @Test
+    void pokemonNombreMasLargoQue(){
+        //Comprueba que el nombre de los pokemon dados son mas largos que el numero
+        //introducido
+        Pokemon[] pokemonEsperados = {
+                new Pokemon(6, 4, "charmander", 85),
+                new Pokemon(11, 5, "charmeleon", 190)
+        };
+        Pokemon[] pokemonActuales = ej.getPokemonNombreMasLargoQue(9);
+        Assertions.assertArrayEquals(pokemonEsperados, pokemonActuales);
+    }
+
 
     @Test
     void getPokemonQueContengaLasSiguientesLetras() {
